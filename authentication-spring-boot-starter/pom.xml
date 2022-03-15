@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.alphagodzilla</groupId>
+        <artifactId>authentication</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>authentication-spring-boot-starter</artifactId>
+    <name>${project.artifactId}</name>
+    <version>1.0-SNAPSHOT</version>
+    <description>认证模块SpringBoot启动器，开箱即用组件</description>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- compile dependencies start -->
+        <dependency>
+            <groupId>com.github.alphagodzilla</groupId>
+            <artifactId>authentication-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.alphagodzilla</groupId>
+            <artifactId>authentication-defaults</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!-- compile dependencies end -->
+        <!-- provided dependencies start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- provided dependencies end -->
+    </dependencies>
+</project>
