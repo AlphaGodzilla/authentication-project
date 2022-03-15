@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.alphagodzilla</groupId>
+        <groupId>io.github.alphagodzilla</groupId>
         <artifactId>authentication</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -20,12 +20,12 @@
     <dependencies>
         <!-- compile dependencies start -->
         <dependency>
-            <groupId>com.github.alphagodzilla</groupId>
+            <groupId>io.github.alphagodzilla</groupId>
             <artifactId>authentication-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.github.alphagodzilla</groupId>
+            <groupId>io.github.alphagodzilla</groupId>
             <artifactId>authentication-defaults</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
