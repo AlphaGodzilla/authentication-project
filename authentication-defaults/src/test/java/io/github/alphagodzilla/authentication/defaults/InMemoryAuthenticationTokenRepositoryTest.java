@@ -1,19 +1,20 @@
 package io.github.alphagodzilla.authentication.defaults;
 
 import io.github.alphagodzilla.authentication.core.model.TokenPersistent;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InMemoryAuthenticationTokenRepositoryTest {
     InMemoryAuthenticationTokenRepository repository;
     TokenPersistent tokenPersistent;
     String key = "defaultKey";
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         repository = new InMemoryAuthenticationTokenRepository();
         tokenPersistent = new TokenPersistent();
@@ -21,27 +22,27 @@ public class InMemoryAuthenticationTokenRepositoryTest {
         tokenPersistent.setExpireAt(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(20));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void putNullToken() {
-        repository.putToken(key, null);
+        assertThrows(NullPointerException.class, () -> repository.putToken(key, null));
     }
 
     @Test
     public void putToken() {
         repository.putToken(key, tokenPersistent);
-        Assert.assertEquals(tokenPersistent, repository.getToken(key));
+        assertEquals(tokenPersistent, repository.getToken(key));
     }
 
     @Test
     public void getToken() {
         repository.putToken(key, tokenPersistent);
-        Assert.assertEquals(tokenPersistent, repository.getToken(key));
+        assertEquals(tokenPersistent, repository.getToken(key));
     }
 
     @Test
     public void deleteToken() {
         repository.putToken(key, tokenPersistent);
         repository.deleteToken(key);
-        Assert.assertNull(repository.getToken(key));
+        assertNull(repository.getToken(key));
     }
 }

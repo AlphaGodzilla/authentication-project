@@ -80,6 +80,16 @@ public class AuthenticationAutoConfiguration {
     }
 
     /**
+     * 默认的Json解析器
+     * @return json解析器实例
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public JsonParser jacksonJsonParer() {
+        return new JacksonJsonParser();
+    }
+
+    /**
      * Token管理服务
      * @param hmacAlgorithm Hmac算法实现
      * @param authenticationTokenRepository Token存储器

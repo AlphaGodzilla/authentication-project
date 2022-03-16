@@ -14,6 +14,9 @@ public class TokenResult {
     private Map<String, String> attributes;
     private Map<String, String> extraAttributes;
 
+    public TokenResult() {
+    }
+
     public TokenResult(String token, Duration expire) {
         this(token, expire, null, null);
     }

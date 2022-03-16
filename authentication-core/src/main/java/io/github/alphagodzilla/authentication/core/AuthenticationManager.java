@@ -37,7 +37,7 @@ public class AuthenticationManager {
      * @param password 密码
      * @return token
      */
-    public TokenResult grant(String username, Duration retention, String password, AuthenticationUserService authenticationUserService) {
+    public TokenResult grant(String username, String password, Duration retention, AuthenticationUserService authenticationUserService) {
         UserInformation userInformation = authenticationUserService.getUserInformation(username);
         Serializable uid = userInformation.getUid();
         antiBruteCrackCheck(uid, () -> {

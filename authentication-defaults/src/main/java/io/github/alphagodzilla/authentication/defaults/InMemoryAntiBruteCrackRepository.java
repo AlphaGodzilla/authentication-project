@@ -20,12 +20,12 @@ public class InMemoryAntiBruteCrackRepository implements AntiBruteCrackRepositor
         String objKey = key.toString();
         ExpirationCounter cacheCounter = memoryCache.get(objKey);
         if (cacheCounter == null) {
-            cacheCounter = new ExpirationCounter(retention, 1);
+            cacheCounter = new ExpirationCounter(retention, times);
             memoryCache.putIfAbsent(objKey, cacheCounter);
             return cacheCounter.getCount();
         }
         cacheCounter.refreshDeadline(retention);
-        return cacheCounter.addAndGetCount(1);
+        return cacheCounter.addAndGetCount(times);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class InMemoryAntiBruteCrackRepository implements AntiBruteCrackRepositor
     }
 
     @Override
-    public  boolean hasBan(Serializable key, int maxCrackTimes) {
+    public boolean hasBan(Serializable key, int maxCrackTimes) {
         ExpirationCounter counter = memoryCache.get(key.toString());
         if (counter == null) {
             return false;

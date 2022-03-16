@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>authentication</name>
+  <name>authentication-parent</name>
   <description>一个业务应用开发中常用的认证功能模块，模块做到了开箱即用扩展自由，减少重复编码提升开发效率</description>
   <url>https://github.com/AlphaGodzilla/authentication-project</url>
 
@@ -17,25 +17,18 @@
     <module>authentication-core</module>
     <module>authentication-defaults</module>
     <module>authentication-spring-boot-starter</module>
+    <module>authentication-spring-boot-starter-test</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <junit.version>4.11</junit.version>
-    <slf4j.version>1.7.36</slf4j.version>
     <spring.boot.version>2.5.9</spring.boot.version>
-    <jackson.version>2.13.2</jackson.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
@@ -43,21 +36,16 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>${jackson.version}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${junit.version}</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 
   <licenses>

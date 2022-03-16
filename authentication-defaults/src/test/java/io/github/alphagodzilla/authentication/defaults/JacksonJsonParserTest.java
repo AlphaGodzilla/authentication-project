@@ -1,9 +1,11 @@
 package io.github.alphagodzilla.authentication.defaults;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JacksonJsonParserTest {
     /**
@@ -56,7 +58,7 @@ public class JacksonJsonParserTest {
         String jsonStr = "{\"id\":1,\"name\":\"jackson\"}";
         TargetJsonObject targetJsonObject = new TargetJsonObject(1L, "jackson");
         TargetJsonObject result = new JacksonJsonParser().toBean(jsonStr, TargetJsonObject.class);
-        Assert.assertEquals(targetJsonObject, result);
+        assertEquals(targetJsonObject, result);
     }
 
     @Test
@@ -65,6 +67,6 @@ public class JacksonJsonParserTest {
         String jsonStrOption2 = "{\"name\":\"jackson\",\"id\":1}";
         TargetJsonObject targetJsonObject = new TargetJsonObject(1L, "jackson");
         String result = new JacksonJsonParser().toJsonString(targetJsonObject);
-        Assert.assertTrue(result.equals(jsonStrOption1) || result.equals(jsonStrOption2));
+        assertTrue(result.equals(jsonStrOption1) || result.equals(jsonStrOption2));
     }
 }
