@@ -216,7 +216,7 @@ public interface PasswordEncoder {
 }
 ```
 
-### 自定义Json解析器
+### 自定义JSON解析器
 实现该接口可以自定义Json的解析实现。默认实现是`JacksonJsonParser`
 ```java
 public interface JsonParser {
