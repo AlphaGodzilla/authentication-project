@@ -10,8 +10,13 @@
 `authentication-core` <-- `authentication-defaults` <-- `authentication-spring-boot-starter`
 
 ## SpringBoot快速集成
-1. 加入依赖
+1. 加入依赖（Maven）
 ```xml
+<dependency>
+  <groupId>io.github.alphagodzilla</groupId>
+  <artifactId>authentication-spring-boot-starter</artifactId>
+  <version>1.0.0</version>
+</dependency>
 ```
 
 2. 应用配置
